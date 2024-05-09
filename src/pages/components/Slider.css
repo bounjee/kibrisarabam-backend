@@ -3,16 +3,23 @@
     max-width: 1298px; 
     margin: auto;
     border-radius: 8px;
+    
 
 
 }
 
 .main-img img {
+    border: 3px solid #4F0077; /* Siyah renkte 1 piksel dış çizgi */
+
     width: 1298px;
     height: 572px; 
     display: block;
     margin: 0 auto;
     transition: opacity 0.5s ease-in-out;
+    border-radius: 4px;
+    
+    
+
 
 
 }
@@ -29,26 +36,53 @@
 }
 
 .thumb-container {
-    display: flex;
-    overflow-x: auto; 
-    gap: 16px; /* Resimler arası boşluk */
-    padding: 16px 0px 0px 0px;
-    margin: 0 auto;
-    justify-content: center;
-    width: 1298px; 
-    
+    overflow-x: auto; /* Yatay kaydırma çubuğunu etkinleştirir */
+    white-space: nowrap; /* Tüm küçük resimleri tek bir satırda tutar */
+    display: flex; /* Flexbox kullanarak içerikleri düzenler */
+    align-items: center; /* Resimleri dikey olarak ortalar */
+    padding: 10px 0; /* Üst ve alt boşluk ekler */
 }
+
 
 .thumb {
     width: 412px; 
     height: 270px;opacity: 0.6;
     cursor: pointer;
     transition: opacity 0.3s ease;
-    
+    border-radius: 4px;
+    border: 3px solid #4F0077; /* Siyah renkte 1 piksel dış çizgi */
 }
 
+
+.thumb:not(:first-child) {
+    margin-left: 8px; /* Sadece ilk resimden sonra başlayarak sol tarafa 10px boşluk ekler */
+}
+
+.thumb:not(:last-child) {
+    margin-right: 8px; /* Son resimden önce bitirerek sağ tarafa 10px boşluk ekler */
+}
 .thumb.active {
     opacity: 1;
+}
+
+/* Kaydırma çubuğu yuvası */
+.thumb-container::-webkit-scrollbar-track {
+    background: #888; /* Yuva rengi */
+}
+
+/* Kaydırma çubuğu başparmağı */
+.thumb-container::-webkit-scrollbar-thumb {
+    background: #888; /* Başparmak rengi */
+}
+
+/* Başparmak üzerine gelindiğinde */
+.thumb-container::-webkit-scrollbar-thumb:hover {
+    background: #4F0077; /* Başparmak üzerine gelindiğindeki renk */
+}
+
+/* Kaydırma çubuğunun genişliği */
+.thumb-container::-webkit-scrollbar {
+    width: 8px; /* Genişlik */
 }
 
 @media (max-width: 600px) {
