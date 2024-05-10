@@ -95,6 +95,7 @@ textarea:not([rows]) {
     background-color: white;
     border-bottom: 1.5px solid rgba(0, 0, 0, 0.3);
     box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.1);
+    z-index: 99999;
 }
 
 .header_menu {
